@@ -92,7 +92,7 @@ news
 WHERE
 (`title` LIKE '%NBA%' OR `description` LIKE '%NBA%') AND `facebook_likes` >100;
 
--- Zadatak 11: Selektuj prvih 10 vesti sa najvise lajkova
+-- Zadatak 11: Selektuj prvih 10 vesti sa najvise lajkova.
 SELECT
 *
 FROM
