@@ -318,10 +318,10 @@ HAVING
         products
     GROUP BY
         brand
-HAVING
+HAVING -- posle grupisanja ide uslov u HAVING ne u WHERE
     COUNT(id) >3
 ORDER BY
-    COUNT(id) DESC;
+    COUNT(id) DESC, brand;
 
 
 
