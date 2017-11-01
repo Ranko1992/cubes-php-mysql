@@ -24,9 +24,42 @@ UPDATE products SET category_id = 5 WHERE category = 'Sporet';
 -- SQL JOIN (INNER JOIN)
 
 -- Zadatak: Selektuj id proizvoda, naziv proizvoda, id kategorije i naziv kategorije
--- Zadatak: Selektuj id proizvoda, naziv proizvoda, id brenda i naziv brenda
--- Zadatak: Selektuj id proizvoda, naziv proizvoda, id kategorije i naziv kategorije, id brenda i naziv brenda
+SELECT
+    products.id, 
+    products.title, 
+    products.category_id,
+    categories.title AS category_title
+FROM
+    products     -- noseca tabela
+JOIN
+    categories ON products.category_id = categories.id;
 
+-- Zadatak: Selektuj id proizvoda, naziv proizvoda, id brenda i naziv brenda
+SELECT
+    products.id,                                                    
+    products.title as naziv_proizvoda,                              
+    products.brand_id as id_brenda,                                     
+    brands.title as naziv_brenda
+FROM
+    products AS p
+JOIN
+    brands as b ON products.brand_id = brands.id;    -- nacin na koji se tabele spajaju
+
+
+-- Zadatak: Selektuj id proizvoda, naziv proizvoda, id kategorije i naziv kategorije, id brenda i naziv brenda
+SELECT
+    products.id,
+    products.title as naziv_proizvoda,
+    categories.id as category_id,
+    categories.title AS category_title,
+    products.brand_id as id_brenda,
+    brands.title as naziv_brenda
+FROM
+    products AS p
+JOIN
+    brands as b ON p.brand_id = b.id
+JOIN
+    categories AS c ON p.category_id = c.id;
 
 
 -- Zadatak: Ubaciti proizvod bez kategorije i proizvod bez brenda, ubaciti brendove i kategorije bez proizvoda
