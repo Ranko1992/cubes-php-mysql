@@ -14,7 +14,7 @@ if ($result === FALSE){
     die('MySQL Error: ' . mysqli_error($link));
 }
 
-          //funkcija za dohvatanje svih rezultata ***MYSQL_ASSOC znaci da izvuce asocijativni niz*** --- 
+          //funkcija za dohvatanje svih rezultata ***MYSQL_ASSOC znaci da izvuce asocijativni niz*** ---- 
 $products = mysqli_fetch_all($result, MYSQLI_ASSOC);
 
 print_r($products);
