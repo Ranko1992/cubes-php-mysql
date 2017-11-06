@@ -77,8 +77,8 @@ if (isset($_POST["task"]) && $_POST["task"] == "save") {
             header('Location: /crud-brand-list.php');
             die();
             
-	}
-}
+	 }
+  }
 
 
 require_once __DIR__ . '/views/layout/header.php';
