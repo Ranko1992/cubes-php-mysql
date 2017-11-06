@@ -2,7 +2,7 @@
 
 // mysqli - funkcije koje pocinju sa mysqli
 // PDO - OO Biblioteka
-        //konekcija na bazu podataka  ***vraca se resurs***
+        //konekcija na bazu podataka  *** vraca resurs na bazu podataka ***
 $link = mysqli_connect('127.0.0.1', 'cubes', 'cubes', 'cubesphp');
 
 //provera da li smo se uspesno konektovali

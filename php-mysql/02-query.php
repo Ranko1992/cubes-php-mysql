@@ -7,8 +7,8 @@ if ($link === FALSE){
     die('MySQL Error:' . mysqli_connect_error($link));
 }
 
-//funkcija za upit nad bazom    ***vraca resurs (za SELECT upit) do rezultujuce tabele***
-$result = mysqli_query($link, 'SELECT title AS naziv_prozivoda, quantity AS kolicina FROM `products`');
+//funkcija za upit nad bazom    ***vraca resurs(pokazivac) (za SELECT upit) na rezultujucu tabelu***
+$result = mysqli_query($link, 'SELECT * FROM `products` ');
 
 if ($result === FALSE){
     die('MySQL Error: ' . mysqli_error($link));
