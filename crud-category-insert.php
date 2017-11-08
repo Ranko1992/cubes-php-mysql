@@ -10,7 +10,7 @@ $formData = array(
        'description' =>''
 );
 
-//ovde se smestaju greske koje imaju polja u formi
+//ovde se smestaju greske koje imaju polja u formi ajo
 $formErrors = array();
 
 
