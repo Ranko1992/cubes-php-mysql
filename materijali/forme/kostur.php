@@ -1,14 +1,7 @@
 <?php
-session_start();
-
-require_once __DIR__ . '/models/m_categories.php';
-require_once __DIR__ . '/models/m_groups.php';
-
 //ovde se prihvataju vrednosti polja, popisati sve kljuceve i pocetne vrednosti
 $formData = array(
-	'title' => '',
-	'group_id' => '',
-	'description' => ''
+	//ovde napisati sve kljuceve i pocetne vrednosti
 );
 
 //ovde se smestaju greske koje imaju polja u formi
@@ -17,7 +10,7 @@ $formErrors = array();
 
 //uvek se prosledjuje jedno polje koje je indikator da su podaci poslati sa forme
 //odnosno da je korisnik pokrenuo neku akciju
-if (isset($_POST["task"]) && $_POST["task"] == "insert") {
+if (isset($_POST["task"]) && $_POST["task"] == "naziv Taska") {
 	
 	/*********** filtriranje i validacija polja ****************/
 	
@@ -30,8 +23,3 @@ if (isset($_POST["task"]) && $_POST["task"] == "insert") {
 	}
 }
 
-$groups = groupsFetchAll();
-
-require_once __DIR__ . '/views/layout/header.php';
-require_once __DIR__ . '/views/templates/t_crud-category-insert.php';
-require_once __DIR__ . '/views/layout/footer.php';
