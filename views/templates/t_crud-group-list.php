@@ -17,7 +17,7 @@
 					<div class="col-md-12">
 						<h2>
 							CRUD Group - List
-							<a href="#" class="pull-right btn btn-success">
+                                                        <a href="/crud-brand-insert.php" class="pull-right btn btn-success">
 								<i class="fa fa-plus-circle"></i>
 								New group
 							</a>
@@ -45,7 +45,7 @@
 									</td>
 									<td class="text-center">
 										<div class="btn-group">
-											<a href="#" class="btn btn-default"><i class="fa fa-pencil"></i></a>
+                                                                                    <a href="/crud-group-edit.php" class="btn btn-default"><i class="fa fa-pencil"></i></a>
 											<a href="#" class="btn btn-default"><i class="fa fa-trash"></i></a>
 										</div>
 									</td>

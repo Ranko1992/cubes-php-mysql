@@ -94,7 +94,7 @@
                                                                                     <li><a href="/crud-product-list.php">Crud Products</a></li>
 											<li><a href="/crud-brand-list.php">Crud Brands</a></li>
 											<li><a href="/crud-category-list.php">Crud Categories</a></li>
-											<li><a href="#">Crud Groups</a></li>
+                                                                                        <li><a href="/crud-group-list.php">Crud Groups</a></li>
 											<li><a href="#">Crud Tags</a></li>
 											<li><hr></li>
 											<li><a href="/logout.php"><i class="glyphicon glyphicon-log-out"></i> Logout</a></li>
