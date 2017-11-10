@@ -8,10 +8,10 @@ if(!isUserLoggedIn()){
     die();
 }
 
-require_once __DIR__ . '/models/m_categories.php';
+require_once __DIR__ . '/models/m_groups.php';
 
-$categories = categoriesFetchAll();
+$groups = groupsFetchAll();
 
 require_once __DIR__ . '/views/layout/header.php';
-require_once __DIR__ . '/views/templates/t_crud-category-list.php';
+require_once __DIR__ . '/views/templates/t_crud-group-list.php';
 require_once __DIR__ . '/views/layout/footer.php';
