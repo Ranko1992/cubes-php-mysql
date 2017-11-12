@@ -15,13 +15,14 @@
 				<div class="row">
 					<div class="col-md-12">
 						<h2>
-							CRUD Group - Edit group #<?php echo htmlspecialchars($group['id']);?>
+                                                    CRUD Group - Edit group #<?php echo htmlspecialchars($group['id']);?>
 						</h2>
 					</div>
 				</div>
 				<div class="row">
 					<div class="col-md-12">
 						<form action="" method="post" class="form-horizontal">
+                                                    
 							<input type="hidden" name="task" value="save">
 							
 							<fieldset>
@@ -29,22 +30,25 @@
 								
 								<div class="form-group">
 									<label class="col-md-3 control-label">Title</label>  
-											<input value="<?php echo isset($formData["title"]) ? htmlspecialchars($formData["title"]) : "";?>" type="text" name="title" class="form-control">
+									<div class="col-md-5">
+                                                                        <input type="text" name="title" value="<?php echo isset($formData["title"]) ? htmlspecialchars($formData["title"]) : "";?>" class="form-control">						
+                                                     
 									</div>
 									<div class="col-md-4">
-										<?php if (!empty($formErrors["title"])) { ?>
-											<ul style="color: red">
-												<?php foreach ($formErrors["title"] as $errorMessage) { ?>
-													<li class="error"><?php echo $errorMessage; ?></li>
-												<?php } ?>
-											</ul>
-										<?php } ?>
+									<?php if (!empty($formErrors["title"])) { ?>
+                                                                                <ul style="color: red">
+                                                                                    <?php foreach ($formErrors["title"] as $errorMessage) { ?>
+                                                                                        <li class="error"><?php echo $errorMessage; ?></li>
+                                                                                        <?php } ?>
+                                                                                </ul>
+                                                                            <?php } ?>	
+									</div>
 								</div>
 							</fieldset>
 							<fieldset>
 								<legend></legend>
 								<div class="form-group text-right">
-									<a href="#" class="btn btn-default">Cancel</a>
+                                                                    <a href="/crud-group-list.php" class="btn btn-default">Cancel</a>
 									<button type="submit" class="btn btn-success"><i class="fa fa-save"></i> Save</button>
 								</div>
 							</fieldset>

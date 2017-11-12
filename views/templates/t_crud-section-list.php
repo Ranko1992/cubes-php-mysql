@@ -3,7 +3,7 @@
 			<div class="container">
 				<div class="header">
 					<h2 class="page-title">
-						<span>CRUD - Groups</span>
+						<span>CRUD - Sections</span>
 					</h2>
 				</div>
 			</div>
@@ -16,10 +16,10 @@
 				<div class="row">
 					<div class="col-md-12">
 						<h2>
-							CRUD Group - List
-                                                        <a href="/crud-group-insert.php" class="pull-right btn btn-success">
+							CRUD Section - List
+                                                        <a href="/crud-section-insert.php" class="pull-right btn btn-success">
 								<i class="fa fa-plus-circle"></i>
-								New group
+								New section
 							</a>
 						</h2>
 					</div>
@@ -35,20 +35,20 @@
 								</tr>
 							</thead>
 							<tbody>
-								<?php foreach ($groups as $group) {
+								<?php foreach ($sections as $section) {
                                                                 
                                                             ?>
 								<tr>
 									<td>
-                                                                            #<?php echo htmlspecialchars($group['id']);?>
+                                                                            #<?php echo htmlspecialchars($section['id']);?>
 									</td>
 									<td>
-                                                                            <?php echo htmlspecialchars($group['title']);?>
+                                                                            <?php echo htmlspecialchars($section['title']);?>
 									</td>
 									<td class="text-center">
 										<div class="btn-group">
-                                                                                    <a href="/crud-group-edit.php" class="btn btn-default"><i class="fa fa-pencil"></i></a>
-                                                                                    <a href="/crud-group-delete.php" class="btn btn-default"><i class="fa fa-trash"></i></a>
+                                                                                    <a href="/crud-section-edit.php" class="btn btn-default"><i class="fa fa-pencil"></i></a>
+                                                                                    <a href="/crud-section-delete.php" class="btn btn-default"><i class="fa fa-trash"></i></a>
 										</div>
 									</td>
 								</tr>
@@ -59,3 +59,4 @@
 				</div>
 			</div>
 		</div>
+

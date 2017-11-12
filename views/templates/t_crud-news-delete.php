@@ -3,7 +3,7 @@
 			<div class="container">
 				<div class="header">
 					<h2 class="page-title">
-						<span>CRUD - Groups</span>
+						<span>CRUD - News</span>
 					</h2>
 				</div>
 			</div>
@@ -15,23 +15,22 @@
 				<div class="row">
 					<div class="col-md-12">
 						<h2>
-                                                    CRUD Group - Delete group #<?php echo htmlspecialchars($group['id'])?>
+							CRUD News - Delete news #<?php echo htmlspecialchars($news['id']);?>
 						</h2>
 					</div>
 				</div>
 				<div class="row">
 					<div class="col-md-12">
 						<form action="" method="post" class="form-horizontal">
-							<input type="hidden" name="task" value="delete">
-							
 							<fieldset>
-								<legend>Are you sure you want to delete group?</legend>
+								<legend>Are you sure you want to delete news?</legend>
 								
 								<div class="form-group">
 									<div class="col-md-6 col-md-offset-3 jumbotron">
 										<strong>
-                                                                                    #<?php echo htmlspecialchars($group['id']);?> 
-                                                                                    <?php echo htmlspecialchars($group['title']);?>
+											#444 - 
+											Section 444 / 
+											Title 4444
 										</strong>
 									</div>
 								</div>
@@ -39,7 +38,7 @@
 							<fieldset>
 								<legend></legend>
 								<div class="form-group text-right">
-                                                                    <a href="/crud-group-list.php" class="btn btn-default">Cancel</a>
+									<a href="#" class="btn btn-default">Cancel</a>
 									<button type="submit" class="btn btn-danger"><i class="fa fa-trash"></i> Delete</button>
 								</div>
 							</fieldset>

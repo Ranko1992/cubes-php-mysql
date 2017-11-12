@@ -39,7 +39,7 @@
 								<?php foreach ($categories as $category) {?>
 								<tr>
 									<td>
-										#<?php echo htmlspecialchars($category['id']);?>
+										<?php echo htmlspecialchars($category['id']);?>
 									</td>
 									<td>
 										<?php echo htmlspecialchars($category['title']);?>

@@ -22,8 +22,6 @@
 				<div class="row">
 					<div class="col-md-12">
 						<form action="" method="post" class="form-horizontal">
-                                                    
-                                                    
 							<input type="hidden" name="task" value="insert">
 							
 							<fieldset>
@@ -32,21 +30,17 @@
 								<div class="form-group">
 									<label class="col-md-3 control-label">Category</label>  
 									<div class="col-md-5">
-                                                                            
 										<select name="category_id" class="form-control">
 											<option value="">--- Select Category ---</option>
-                                                                        <?php foreach ($categoryList as $categoryId => $categoryLabel) {?>
+											<?php foreach ($categoryList as $categoryId => $categoryLabel) {?>
 											<option 
 												value="<?php echo htmlspecialchars($categoryId);?>"
-                                                                                       
-                                                                                                <?php if ($categoryId == $formData['category_id']) {?>
-                                                                                                
-                                                                                                selected="selected"
-                                                                                 
-                                                                                                <?php }?>
-                                                                                                                                 
+												
+												<?php if($categoryId == $formData['category_id']) {?>
+												selected="selected"
+												<?php }?>
+												
 												><?php echo htmlspecialchars($categoryLabel);?></option>
-                                                                                        
 											<?php }?>
 										</select>
 									</div>
@@ -64,22 +58,19 @@
 									<label class="col-md-3 control-label">Brand</label>  
 									<div class="col-md-5">
 										<select name="brand_id" class="form-control">
-                                                                                    <option value="">--- Select Brand ---</option>
-                                                                                        <?php foreach ($brandList as $brandId => $brandLabel) {?>
+											<option value="">--- Select Brand ---</option>
+											<?php foreach ($brandList as $brandId => $brandTitle) {?>
 											<option 
 												value="<?php echo htmlspecialchars($brandId);?>"
-                                                                                       
-                                                                                                <?php if ($brandId == $formData['brand_id']) {?>
-                                                                                                
-                                                                                                selected="selected"
-                                                                                 
-                                                                                                <?php }?>
-                                                                                                                                 
-												><?php echo htmlspecialchars($brandLabel);?></option>
-                                                                                        
+												
+												<?php if($brandId == $formData['brand_id']) {?>
+												selected="selected"
+												<?php }?>
+												
+												><?php echo htmlspecialchars($brandTitle);?></option>
 											<?php }?>
 										</select>
-									</div>      
+									</div>
 									<div class="col-md-4">
 										<?php if (!empty($formErrors["brand_id"])) { ?>
 											<ul style="color: red">

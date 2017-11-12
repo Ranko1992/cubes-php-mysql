@@ -7,30 +7,30 @@ if (!isUserLoggedIn()) {
 	header('Location: /login.php');
 	die();
 }
-
-require_once __DIR__ . '/models/m_brands.php';
+require_once __DIR__ . '/models/m_groups.php';
 
 if (empty($_GET['id'])) {
 	die('Morate proslediti id');
 }
-
+$id = $_GET['id'];
 $id = (int) $_GET['id'];
 
 
-$brand = brandsFetchOneById($id);
+$group = groupsFetchOneById($id);
 
-if (empty($brand)) {
-	die('Trazeni brand ne postoji');
+if (empty($group)) {
+	die('Trazena grupa ne postoji');
 }
 
 if (isset($_POST["task"]) && $_POST["task"] == "delete") {
 	
-	brandsDeleteOneById($id);
+	groupsDeleteOneById($id);
 
-	header('Location: /crud-brand-list.php');
+	header('Location: /crud-group-list.php');
 	die();
 }
 
 require_once __DIR__ . '/views/layout/header.php';
-require_once __DIR__ . '/views/templates/t_crud-brand-delete.php';
+require_once __DIR__ . '/views/templates/t_crud-group-delete.php';
 require_once __DIR__ . '/views/layout/footer.php';
+

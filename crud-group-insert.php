@@ -1,6 +1,5 @@
 <?php
 session_start();
-
 require_once __DIR__ . '/models/m_users.php';
 
 if (!isUserLoggedIn()) {
@@ -9,20 +8,9 @@ if (!isUserLoggedIn()) {
 }
 require_once __DIR__ . '/models/m_groups.php';
 
-if(!isset($_GET['id'])){
-    die('Morate proslediti id');
-}
-
-$id = (int) $_GET['id'];
-
-$group = groupsFetchOneById($id);
-
-if(empty($group)){
-    die ('Trazena grupa ne postoji');
-}
-
+//ovde se prihvataju vrednosti polja, popisati sve kljuceve i pocetne vrednosti
 $formData = array(
-    'title' => $group['title']
+    'title' => ''
 	//ovde napisati sve kljuceve i pocetne vrednosti
 );
 
@@ -32,7 +20,7 @@ $formErrors = array();
 
 //uvek se prosledjuje jedno polje koje je indikator da su podaci poslati sa forme
 //odnosno da je korisnik pokrenuo neku akciju
-if (isset($_POST["task"]) && $_POST["task"] == "save") {
+if (isset($_POST["task"]) && $_POST["task"] == "insert") {
 	
 		if (isset($_POST["title"]) && $_POST["title"] !== '') {
 		//Dodavanje parametara medju podatke u formi
@@ -40,7 +28,8 @@ if (isset($_POST["task"]) && $_POST["task"] == "save") {
 		
 		//Filtering 1
 		$formData["title"] = trim($formData["title"]);
-		//Filtering 
+		//Filtering 2
+		
 		
 	} else {//Ovaj else ide samo ako je polje obavezno
 		$formErrors["title"][] = "Polje title je obavezno";
@@ -49,11 +38,13 @@ if (isset($_POST["task"]) && $_POST["task"] == "save") {
 	
 	//Ukoliko nema gresaka 
 	if (empty($formErrors)) {
-            groupsUpdateOneById($group['id'], $formData);
+	
+            $newGroupId = groupsInsertOne($formData);
             header('Location: /crud-group-list.php');
+            die();
 	}
 }
 
 require_once __DIR__ . '/views/layout/header.php';
-require_once __DIR__ . '/views/templates/t_crud-group-edit.php';
+require_once __DIR__ . '/views/templates/t_crud-group-insert.php';
 require_once __DIR__ . '/views/layout/footer.php';

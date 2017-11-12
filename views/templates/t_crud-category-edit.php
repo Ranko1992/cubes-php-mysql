@@ -22,7 +22,6 @@
 				<div class="row">
 					<div class="col-md-12">
 						<form action="" method="post" class="form-horizontal">
-                                                    
 							<input type="hidden" name="task" value="save">
 							
 							<fieldset>
@@ -48,21 +47,16 @@
 									<div class="col-md-5">
 										<select name="group_id" class="form-control">
 											<option value="">--- Select Group ---</option>
-                                                                                        
 											<?php foreach ($groupList as $groupId => $groupTitle) {?>
 											<option 
 												value="<?php echo htmlspecialchars($groupId);?>"
-                                                                                       
-                                                                                                <?php if ($groupId == $formData['group_id']) {?>
-                                                                                                
-                                                                                                selected="selected"
-                                                                                                
-                                                                                                <?php }?>
-                                                                                                
+												
+												<?php if($groupId == $formData['group_id']) {?>
+												selected="selected"
+												<?php }?>
+												
 												><?php echo htmlspecialchars($groupTitle);?></option>
-                                                                                        
 											<?php }?>
-
 										</select>
 									</div>
 									<div class="col-md-4">

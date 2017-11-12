@@ -3,10 +3,11 @@ session_start();
 
 require_once __DIR__ . '/models/m_users.php';
 
-if(!isUserLoggedIn()){
-    header('Location: /login.php');
-    die();
+if (!isUserLoggedIn()) {
+	header('Location: /login.php');
+	die();
 }
+
 
 require_once __DIR__ . '/models/m_brands.php';
 
@@ -17,6 +18,7 @@ if (empty($_GET['id'])) {
 $id = (int) $_GET['id'];
 
 $brand = brandsFetchOneById($id);
+
 
 if (empty($brand)) {
 	die('Trazeni brand ne postoji');
