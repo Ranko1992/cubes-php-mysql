@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 09, 2017 at 07:49 PM
+-- Generation Time: Nov 12, 2017 at 11:26 PM
 -- Server version: 10.1.26-MariaDB
 -- PHP Version: 7.1.9
 
@@ -95,7 +95,34 @@ CREATE TABLE `groups` (
 INSERT INTO `groups` (`id`, `title`) VALUES
 (1, 'Mobilni uredjaji'),
 (2, 'Bela tehnika'),
-(3, 'Racunari');
+(3, 'Racunari'),
+(4, 'Frizideri'),
+(5, 'Ugradne ploce');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `news`
+--
+
+CREATE TABLE `news` (
+  `id` int(11) NOT NULL,
+  `section_id` int(11) NOT NULL,
+  `description` text,
+  `content` longtext,
+  `created_at` datetime DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `news`
+--
+
+INSERT INTO `news` (`id`, `section_id`, `description`, `content`, `created_at`) VALUES
+(1, 1, 'Vucic otvorio dusu: JA ZELIM SLOBODNU SRBIJU, A ONI HOCE SLUGE!', 'Organi SNS-a u subotu donose odluku o gradskim i parlamentarnim izborima.\r\nKad strani ambasadori odlucuju i o dnevnom redu Vlade, sve je besmisleno.\r\nNeki meni bliski ljudi prvi ce krenuti da se obracunaju sa mnom i mojom porodicom.\r\nVelike sile stite svoje a ne srpske interese', '2017-11-11 04:23:29'),
+(2, 1, 'Vlasi provocira usred Beograda: Nezavisnost KiM je nepovratna!', 'Azem Vlasi, bivsi visoki funkcioner SFRJ, izjavio je juce na medjunarodnom skupu \"Beogradski strateski dijalog\" da je nezavisnos Kosova neopoziva i nepovratna, ali da je potrebno i korisno normalizovati odnose, pre svega, kako je rekao, na dobrobit Srba koji zive na Kosovu.', '2017-11-11 12:20:00'),
+(3, 2, 'Aleksandra Prijovic potvrdila: Operisala sam nos jer nisam mogla da disem', 'Moram vam priznati da sam imala vrlo veliki problem sa disanjem, tako da je bilo neminovno da dodje do operacije. Jedna nozdrva mi je bila potpuno zapusena i prosto sam morala da odem i resim taj problem- rekla je Aleksandra i time potvrdila pisanja da je u novembru ove godine korigovala svoj nos i resila problem sa devijacijom nosa', '2017-11-11 15:16:00'),
+(4, 2, 'Rasta otkriva: Menjam pelene kao profesionalac!', 'Reper Stefan Djuric Rasta resio je da otvori dusu i prizna da mu je veoma tesko sto je u medijima okarakterisan kao los muz i otac.Nakon spekulacija da ga je Ana Nikolic ostavila zbog sve cesceg odsustvovanja od kuce, reper je ispricao da on retko izlazi u provod, ali da se i to desava.', '2017-11-12 12:26:12'),
+(5, 3, '\"ORLOVI\" dobili zlatna krila!', 'Cak sedmorica decaka koji su osvojili \"Mundijalito\" uvrsteni su u A tim, a petorica su vec igrala protiv Kine.', NULL);
 
 -- --------------------------------------------------------
 
@@ -205,6 +232,28 @@ INSERT INTO `product_tags` (`id`, `product_id`, `tag_id`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `sections`
+--
+
+CREATE TABLE `sections` (
+  `id` int(11) NOT NULL,
+  `title` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `sections`
+--
+
+INSERT INTO `sections` (`id`, `title`) VALUES
+(1, 'politika'),
+(2, 'zabava'),
+(3, 'sport'),
+(4, 'Kultura'),
+(5, 'sport');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `tags`
 --
 
@@ -222,7 +271,8 @@ INSERT INTO `tags` (`id`, `title`) VALUES
 (2, 'Ekstra kvalitet'),
 (3, 'Pobednik sajma tehnike'),
 (4, 'Garancija 2 godine'),
-(5, 'Garancija 5 godina');
+(5, 'Garancija 5 godina'),
+(6, 'Popust 30%');
 
 --
 -- Indexes for dumped tables
@@ -247,6 +297,12 @@ ALTER TABLE `groups`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `news`
+--
+ALTER TABLE `news`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `polaznici`
 --
 ALTER TABLE `polaznici`
@@ -264,6 +320,12 @@ ALTER TABLE `products`
 -- Indexes for table `product_tags`
 --
 ALTER TABLE `product_tags`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `sections`
+--
+ALTER TABLE `sections`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -292,7 +354,13 @@ ALTER TABLE `categories`
 -- AUTO_INCREMENT for table `groups`
 --
 ALTER TABLE `groups`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
+--
+-- AUTO_INCREMENT for table `news`
+--
+ALTER TABLE `news`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `polaznici`
@@ -313,10 +381,16 @@ ALTER TABLE `product_tags`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
+-- AUTO_INCREMENT for table `sections`
+--
+ALTER TABLE `sections`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
+--
 -- AUTO_INCREMENT for table `tags`
 --
 ALTER TABLE `tags`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
