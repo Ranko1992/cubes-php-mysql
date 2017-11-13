@@ -9,7 +9,7 @@ function dbGetLink() {
 	
 	if (!isset($link)) {
 		
-		$link = mysqli_connect('127.0.0.1', 'cubes', 'cubes', 'cubes-php-mysql');
+		$link = mysqli_connect('127.0.0.1', 'cubes', 'cubes', 'cubesphp');
 		
 		if (!$link) {
 			die('MySQL Connect Error: ' . mysqli_connect_error());
@@ -22,7 +22,7 @@ function dbGetLink() {
 /**
  * @param string $value
  * @return string
- */
+ */         
 function dbEscape($value) {
 	$link = dbGetLink();
 	
