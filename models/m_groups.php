@@ -104,9 +104,9 @@ function groupsGetList (){
 //        $groupList[$key] = $value;
         
         $groupList[$group['id']] = $group['title'];
-        
+       } 
         return $groupList;
-    }
+    
     
     
 }

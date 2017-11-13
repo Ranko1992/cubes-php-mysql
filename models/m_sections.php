@@ -90,7 +90,7 @@ function sectionsGetCount() {
 
 function sectionsGetList (){
     
-    $query = "SELECT `sections`.* FROM `sections` ORDER by `sections`.`title`";
+    $query = "SELECT `sections`.* FROM `sections` ORDER by `sections`.`id`";
     
     $sections = dbFetchAll($query);
             
@@ -104,9 +104,9 @@ function sectionsGetList (){
 //        $groupList[$key] = $value;
         
         $groupList[$group['id']] = $group['title'];
-        
+     }   
         return $groupList;
-    }
+    
     
     
 }

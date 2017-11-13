@@ -97,6 +97,7 @@
                                                                                         <li><a href="/crud-group-list.php">Crud Groups</a></li>
                                                                                         <li><a href="/crud-tags-list.php">Crud Tags</a></li>
                                                                                         <li><a href="/crud-section-list.php">Crud Sections</a></li>
+                                                                                        <li><a href="/crud-news-list.php">Crud News</a></li>
                                                                                  
 											<li><hr></li>
 											<li><a href="/logout.php"><i class="glyphicon glyphicon-log-out"></i> Logout</a></li>

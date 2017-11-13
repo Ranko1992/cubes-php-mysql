@@ -92,17 +92,17 @@ function newsGetCount() {
 
 function newsGetListByGroup(){
     
-    $query = "SELECT `news`.*, `groups`.`title` AS group_title "
+    $query = "SELECT `news`.*, `sections`.`title` AS section_title "
 			. "FROM `news` "
-			. "LEFT JOIN `groups` ON `news`.`group_id` = `groups`.`id` "
-                        . "ORDER BY groups.title, news.title";
+			. "LEFT JOIN `sections` ON `news`.`section_id` = `sections`.`id` "
+                        . "ORDER BY sections.title, news.title";
                                                                                     
    $news = dbFetchAll($query);
-   $categoryList =[];
+   $sectionList =[];
    
-   foreach ($news as $category) {
+   foreach ($news as $section) {
        
-       $categoryList[$category['id']] = $category['group_title'] . ' / ' . $category['title'];
+       $sectionList[$section['id']] = $section['section_title'] . "/". $section['title'] ;
    }
-        return $categoryList;
+        return $sectionList;
 }

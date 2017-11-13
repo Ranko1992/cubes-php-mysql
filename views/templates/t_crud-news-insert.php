@@ -21,19 +21,28 @@
 				</div>
 				<div class="row">
 					<div class="col-md-12">
-						<form action="" class="form-horizontal">
+                                            <form action="" method="post" class="form-horizontal">
+                                                     <input type="hidden" name="task" value="insert">
 							<fieldset>
 								<legend>General Data</legend>
 								
 								<div class="form-group">
 									<label class="col-md-3 control-label">Section</label>  
 									<div class="col-md-5">
-										<select class="form-control">
+										<select name="section_id" class="form-control">
 											<option value="">--- Select Section ---</option>
-											<option value="1">Section 1</option>
-											<option value="2">Section 3</option>
-											<option value="3">Section 4</option>
-										</select>
+											
+                                                                            <?php foreach ($newsList as $newsId => $newsLabel) { ?>
+                                                                                            <option 
+                                                                                                value="<?php echo htmlspecialchars($newsId); ?>"
+
+                                                                                                <?php if ($newsId == $formData['section_id']) { ?>
+                                                                                                    selected="selected"
+                                                                                                <?php } ?>
+
+                                                                                                ><?php echo htmlspecialchars($newsLabel); ?></option>
+                                                                                        <?php } ?>
+                                                                                </select>
 									</div>
 									<div class="col-md-4">
 										
@@ -42,20 +51,37 @@
 								<div class="form-group">
 									<label class="col-md-3 control-label">Title</label>  
 									<div class="col-md-5">
-										<input type="text" class="form-control">
+										
+                                  <input type="text" name="title" value="<?php echo isset($formData["title"]) ? htmlspecialchars($formData["title"]) : "";?>" class="form-control">
+                                              
 									</div>
 									<div class="col-md-4">
-									
+									<?php if (!empty($formErrors["title"])) { ?>
+                                                                                <ul style="color: red">
+                                                                                    <?php foreach ($formErrors["title"] as $errorMessage) { ?>
+                                                                                        <li class="error"><?php echo $errorMessage; ?></li>
+                                                                                        <?php } ?>
+                                                                                </ul>
+                                                                            <?php } ?>
 									</div>
 								</div>
 								
 								<div class="form-group">
 									<label class="col-md-3 control-label">Description</label>  
 									<div class="col-md-5">
-										<textarea class="form-control" rows="5"></textarea>
+									
+                                                                                <textarea name="description" class="form-control" rows="5">
+                                                                                    <?php echo isset($formData["description"]) ? htmlspecialchars($formData["description"]) : ""; ?>
+                                                                                </textarea>
 									</div>
 									<div class="col-md-4">
-									
+                                                                            <?php if (!empty($formErrors["description"])) { ?>
+                                                                                <ul style="color: red">
+                                                                                    <?php foreach ($formErrors["description"] as $errorMessage) { ?>
+                                                                                        <li class="error"><?php echo $errorMessage; ?></li>
+                                                                                        <?php } ?>
+                                                                                </ul>
+                                                                            <?php } ?>
 									</div>
 								</div>
 							</fieldset>
@@ -76,17 +102,26 @@
 								
 								<div class="form-group">
 									<div class="col-md-8 col-md-offset-2">
-										<textarea class="form-control" rows="30"></textarea>
+										
+                                                                                <textarea name="content" class="form-control" rows="30">
+                                                                                    <?php echo isset($formData["content"]) ? htmlspecialchars($formData["content"]) : ""; ?>
+                                                                                </textarea>
 									</div>
 									<div class="col-md-4">
-									
+									<?php if (!empty($formErrors["content"])) { ?>
+                                                                                <ul style="color: red">
+                                                                                    <?php foreach ($formErrors["content"] as $errorMessage) { ?>
+                                                                                        <li class="error"><?php echo $errorMessage; ?></li>
+                                                                                        <?php } ?>
+                                                                                </ul>
+                                                                            <?php } ?>
 									</div>
 								</div>
 							</fieldset>
 							<fieldset>
 								<legend></legend>
 								<div class="form-group text-right">
-									<a href="#" class="btn btn-default">Cancel</a>
+                                                                    <a href="/crud-news-list.php" class="btn btn-default">Cancel</a>
 									<button type="submit" class="btn btn-success"><i class="fa fa-plus-circle"></i> Add</button>
 								</div>
 							</fieldset>
