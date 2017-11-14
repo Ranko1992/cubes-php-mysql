@@ -60,8 +60,7 @@
 									<select name="brand_id" class="form-control">
 											<option value="">--- Select Brand ---</option>
 											<?php foreach ($brandList as $brandId => $brandTitle) {?>
-											<option 
-												value="<?php echo htmlspecialchars($brandId);?>"
+											<option value="<?php echo htmlspecialchars($brandId);?>"
 												
 												<?php if($brandId == $formData['brand_id']) {?>
 												selected="selected"

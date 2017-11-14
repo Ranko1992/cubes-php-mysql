@@ -95,7 +95,7 @@ function newsGetListByGroup(){
     $query = "SELECT `news`.*, `sections`.`title` AS section_title "
 			. "FROM `news` "
 			. "LEFT JOIN `sections` ON `news`.`section_id` = `sections`.`id` "
-                        . "ORDER BY sections.title, news.title";
+                        . "ORDER BY sections.title,news.title";
                                                                                     
    $news = dbFetchAll($query);
    $sectionList =[];

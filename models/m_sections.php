@@ -94,18 +94,18 @@ function sectionsGetList (){
     
     $sections = dbFetchAll($query);
             
-    $groupList = [];
+    $sectionList = [];
     
-    foreach ($sections as $group){
+    foreach ($sections as $section){
         
-//        $key = $group['id'];
-//        $value = $group['title'];
+//        $key = $section['id'];
+//        $value = $section['title'];
 //
-//        $groupList[$key] = $value;
+//        $sectionList[$key] = $value;
         
-        $groupList[$group['id']] = $group['title'];
+        $sectionList[$section['id']] = $section['title'];
      }   
-        return $groupList;
+        return $sectionList;
     
     
     

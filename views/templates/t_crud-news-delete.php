@@ -15,22 +15,23 @@
 				<div class="row">
 					<div class="col-md-12">
 						<h2>
-							CRUD News - Delete news #<?php echo htmlspecialchars($news['id']);?>
+							CRUD News - Delete news #<?php echo htmlspecialchars($oneNews['id']);?>
 						</h2>
 					</div>
 				</div>
 				<div class="row">
 					<div class="col-md-12">
-						<form action="" method="post" class="form-horizontal">
+						 <form action="" method="post" enctype="multipart/form-data" class="form-horizontal">
+                    <input type="hidden" name="task" value="delete">
 							<fieldset>
 								<legend>Are you sure you want to delete news?</legend>
 								
 								<div class="form-group">
 									<div class="col-md-6 col-md-offset-3 jumbotron">
 										<strong>
-											#444 - 
-											Section 444 / 
-											Title 4444
+                                                                                    # <?php echo htmlspecialchars($oneNews['id']);?> 
+											Section: <?php echo htmlspecialchars($oneNews['section_id']);?> 
+											Title: <?php echo htmlspecialchars($oneNews['title']);?> 
 										</strong>
 									</div>
 								</div>
@@ -38,7 +39,7 @@
 							<fieldset>
 								<legend></legend>
 								<div class="form-group text-right">
-									<a href="#" class="btn btn-default">Cancel</a>
+                                                                    <a href="/crud-news-list.php" class="btn btn-default">Cancel</a>
 									<button type="submit" class="btn btn-danger"><i class="fa fa-trash"></i> Delete</button>
 								</div>
 							</fieldset>

@@ -16,7 +16,8 @@ $formData = array(
 	'section_id' => '',
         'title' => '',
         'description' => '',
-        'content' => ''
+        'content' => '',
+         'created_at' => ''
 );
 
 //ovde se smestaju greske koje imaju polja u formi
@@ -34,8 +35,8 @@ if (isset($_POST["task"]) && $_POST["task"] == "insert") {
 		//Filtering 1
 		$formData["section_id"] = trim($formData["section_id"]);
 		//Filtering 2
-	$testNews = newsFetchOneById($formData['section_id']);
-        if (empty($testNews)){
+	$testSections = sectionsFetchOneById($formData['section_id']);
+        if (empty($testSections)){
             $formErrors["section_id"][] = "Izabrali ste neodgovarajucu kategoriju";
         }
 		
@@ -73,12 +74,13 @@ if (isset($_POST["task"]) && $_POST["task"] == "insert") {
 	if (empty($formErrors)) {
             $addedNews = newsInsertOne($formData);
             header('Location: /crud-news-list.php');
+            die();
 	}
 }
 
 
-$newsList = sectionsGetList();
-print_r($newsList);
+$sectionList = sectionsGetList();
+print_r($sectionList);
 require_once __DIR__ . '/views/layout/header.php';
 require_once __DIR__ . '/views/templates/t_crud-news-insert.php';
 require_once __DIR__ . '/views/layout/footer.php';

@@ -47,8 +47,8 @@
 									</td>
 									<td class="text-center">
 										<div class="btn-group">
-                                                                                    <a href="/crud-group-edit.php" class="btn btn-default"><i class="fa fa-pencil"></i></a>
-                                                                                    <a href="/crud-group-delete.php" class="btn btn-default"><i class="fa fa-trash"></i></a>
+                                                                                    <a href="/crud-group-edit.php?id=<?php echo htmlspecialchars($group['id']);?>" class="btn btn-default"><i class="fa fa-pencil"></i></a>
+                                                                                    <a href="/crud-group-delete.php?id=<?php echo htmlspecialchars($group['id']);?>" class="btn btn-default"><i class="fa fa-trash"></i></a>
 										</div>
 									</td>
 								</tr>
