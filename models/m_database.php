@@ -9,7 +9,7 @@ function dbGetLink() {
 	
 	if (!isset($link)) {
 		
-		$link = mysqli_connect('127.0.0.1', 'cubes', 'cubes', 'cubes-php-mysql');
+		$link = mysqli_connect('127.0.0.1', 'cubes', 'cubes', 'cubesphp');
 		
 		if (!$link) {
 			die('MySQL Connect Error: ' . mysqli_connect_error());
@@ -86,5 +86,11 @@ function dbFetchColumn($query) {
 	
 	$result = dbQuery($query);
 	
-	return mysqli_fetch_field($result);
+        
+        $row = mysqli_fetch_row($result);
+        
+        $firstColumn = $row[0];
+        
+        return $firstColumn;
+	
 }

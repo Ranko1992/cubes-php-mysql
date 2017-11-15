@@ -26,12 +26,18 @@ if (empty($product)) {
 
 if (isset($_POST["task"]) && $_POST["task"] == "delete") {
 	
+    //prilikom brisanja proizvoda mora se obrisati i slika
+        // putanja do uploadovane slike
+        $photoFilePath = __DIR__ . '/uploads/products/' . $product['photo_filename'];
+        if (is_file($photoFilePath)){
+            unlink($photoFilePath);
+        }
 	productsDeleteOneById($product['id']);
-
+        
 	header('Location: /crud-product-list.php');
 	die();
 }
-
+                                                                                
 require_once __DIR__ . '/views/layout/header.php';
 require_once __DIR__ . '/views/templates/t_crud-product-delete.php';
 require_once __DIR__ . '/views/layout/footer.php';

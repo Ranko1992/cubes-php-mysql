@@ -21,7 +21,7 @@ $formData = array(
     'title' => '',
     'price' => '',
     'on_sale' => 0,
-    'discount' => '',
+    'discount' => 0,
     'description' => '',
     'specification' => ''
 );
@@ -179,7 +179,7 @@ if (isset($_POST["task"]) && $_POST["task"] == "insert") {
     //Ukoliko nema gresaka 
     if (empty($formErrors)) {
         //Uradi akciju koju je korisnik trazio
-
+      //  $formData['creted_at'] = date('Y-m-d H:i:s');
         $newProductId = productsInsertOne($formData);
 
         $newProductPhotoFileName = $newProductId . '_' . $photoFileName;
