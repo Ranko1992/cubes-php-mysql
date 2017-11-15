@@ -37,9 +37,9 @@ $formErrors = array();
 
 //uvek se prosledjuje jedno polje koje je indikator da su podaci poslati sa forme
 //odnosno da je korisnik pokrenuo neku akciju
-if (isset($_POST["task"]) && $_POST["task"] == "insert") {
+if (isset($_POST["task"]) && $_POST["task"] == "save") {
 	
-        if (isset($_POST["section_id"]) && $_POST["section_id"] !== '') {
+       if (isset($_POST["section_id"]) && $_POST["section_id"] !== '') {
 		//Dodavanje parametara medju podatke u formi
 		$formData["section_id"] = $_POST["section_id"];
 		
@@ -80,18 +80,67 @@ if (isset($_POST["task"]) && $_POST["task"] == "insert") {
 		//Filtering 1
 		$formData["content"] = trim($formData["content"]);	
 	} 
+        if (isset($_FILES["photo"]) && empty($_FILES["photo"]['error'])) {
+		//Filtering
+		$photoFileTmpPath = $_FILES["photo"]["tmp_name"];
+		$photoFileName = basename($_FILES["photo"]["name"]);
+		$photoFileMime = mime_content_type($_FILES["photo"]["tmp_name"]);
+		$photoFileSize = $_FILES["photo"]["size"];
+
+		//validation
+		$photoFileAllowedMime = array("image/jpeg", "image/png", "image/gif");
+		$photoFileMaxSize = 5 * 1024 * 1024;// 5 MB
+
+		if (!in_array($photoFileMime, $photoFileAllowedMime)) {
+			$formErrors["photo"][] = "Fajl photo je u neispravnom formatu";
+		}
+
+		if ($photoFileSize > $photoFileMaxSize) {
+			$formErrors["photo"][] = "Fajl photo prelazi maksimalnu dozvoljenu velicinu";
+		}
+		
+	} else {//Ovaj else ide samo ako je polje obavezno
+		$formErrors["photo"][] = "Polje photo je obavezno";
+	}
 	
 	//Ukoliko nema gresaka 
 	if (empty($formErrors)) {
             newsUpdateOneById($new['id'],$formData);
-            header('Location: /crud-news-list.php');
-            die();
+            if(isset($_FILES['photo'])){
+                
+                //obrisati staru sliku
+                $oldPhotoPath = __DIR__ . '/uploads/news/' . $new['photo_filename'];
+                
+                if (is_file($oldPhotoPath)){
+                    unlink($oldPhotoPath);
+                }
+
+                //premestiti novu sliku
+                
+                $newPhotoFileName = $new['id'] . '_' . $photoFileName;
+                
+               $destinationPath = __DIR__ . '/uploads/news/' . $newPhotoFileName;
+               
+                //updatovati photo_filename
+                if (move_uploaded_file($photoFileTmpPath, $destinationPath)){
+                    
+                    newsUpdatePhotoFileName($new['id'], $newPhotoFileName);
+                     header('Location: /crud-news-list.php');
+                     die();
+                }else {
+                    $formErrors['photo'][] = 'Doslo je do greske prilikom uploada';
+                }
+            } else {
+                 header('Location: /crud-news-list.php');
+                 die();
+            }
+            
 	}
 }
 
 
 $newsList = sectionsGetList();
-print_r($newsList);
+
 require_once __DIR__ . '/views/layout/header.php';
 require_once __DIR__ . '/views/templates/t_crud-news-edit.php';
 require_once __DIR__ . '/views/layout/footer.php';

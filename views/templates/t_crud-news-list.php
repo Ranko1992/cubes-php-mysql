@@ -39,8 +39,6 @@
                     <tbody>
                         <?php foreach ($news as $new) { ?>
 
-
-
                             <tr>
                                 <td>
                                     #<?php echo htmlspecialchars($new['id']); ?>
@@ -49,8 +47,8 @@
                                     <?php echo htmlspecialchars($new['section_title']); ?>
                                 </td>
                                 <td>
-                                    <?php echo htmlspecialchars($new['description']); ?>
-                                </td>
+                                    <?php echo htmlspecialchars($new['title']); ?>
+                                </td>      
                                 <td>
                                     <?php echo htmlspecialchars($new['created_at']); ?>
                                 </td>

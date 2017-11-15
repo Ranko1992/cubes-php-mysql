@@ -39,6 +39,7 @@
                                                 ><?php echo htmlspecialchars($newsLabel); ?></option>
                                             <?php } ?>
                                 </select>
+
                             </div>
                             <div class="col-md-4">
                                 <?php if (!empty($formErrors["section_id"])) { ?>
@@ -53,6 +54,7 @@
                         <div class="form-group">
                             <label class="col-md-3 control-label">Title</label>  
                             <div class="col-md-5">
+
                                 <input type="text" name="title" value="<?php echo isset($formData["title"]) ? htmlspecialchars($formData["title"]) : ""; ?>" class="form-control">
                             </div>
                             <div class="col-md-4">
@@ -82,6 +84,7 @@
                                         <?php } ?>
                                     </ul>
                                 <?php } ?>
+
                             </div>
                         </div>
                     </fieldset>
@@ -89,16 +92,22 @@
                         <legend>Photo</legend>
                         <div class="row">
                             <div class="col-md-8 col-md-offset-2">
-                                <img src="/skins/tema/img/portfolio/enkel-home-blue.png" class="img-responsive">
+                                <img src="/uploads/news/<?php echo htmlspecialchars($new['photo_filename']); ?>" class="img-responsive">
                             </div>
                         </div>
                         <div class="form-group">
                             <label class="col-md-3 control-label">Change Photo</label>  
                             <div class="col-md-5">
-                                <input type="file" class="form-control">
+                                <input type="file" name="photo" class="form-control">
                             </div>
                             <div class="col-md-4">
-
+                                <?php if (!empty($formErrors["photo"])) { ?>
+                                    <ul style="color: red">
+                                        <?php foreach ($formErrors["photo"] as $errorMessage) { ?>
+                                            <li class="error"><?php echo $errorMessage; ?></li>
+                                        <?php } ?>
+                                    </ul>
+                                <?php } ?>
                             </div>
                         </div>
                     </fieldset>
@@ -113,7 +122,6 @@
                                 </textarea>
                             </div>
                             <div class="col-md-4">
-
                                 <?php if (!empty($formErrors["content"])) { ?>
                                     <ul style="color: red">
                                         <?php foreach ($formErrors["content"] as $errorMessage) { ?>
@@ -121,6 +129,7 @@
                                         <?php } ?>
                                     </ul>
                                 <?php } ?>
+
                             </div>
                         </div>
                     </fieldset>

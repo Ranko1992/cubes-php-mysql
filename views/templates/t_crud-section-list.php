@@ -45,8 +45,8 @@
 									</td>
 									<td class="text-center">
 										<div class="btn-group">
-                                                                                    <a href="/crud-section-edit.php?id=<?php htmlspecialchars($section['id']);?> " class="btn btn-default"><i class="fa fa-pencil"></i></a>
-                                                                                    <a href="/crud-section-delete.php?id=<?php htmlspecialchars($section['id']);?>" class="btn btn-default"><i class="fa fa-trash"></i></a>
+                                                                                    <a href=" /crud-section-edit.php?id=<?php echo htmlspecialchars($section['id']);?>" class="btn btn-default"><i class="fa fa-pencil"></i></a>
+                                                                                    <a href=" /crud-section-delete.php?id=<?php echo htmlspecialchars($section['id']); ?>" class="btn btn-default"><i class="fa fa-trash"></i></a>
 										</div>
 									</td>
 								</tr>
