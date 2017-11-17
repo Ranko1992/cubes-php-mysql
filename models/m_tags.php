@@ -108,5 +108,17 @@ function tagsGetList (){
         return $groupList;
     }
     
+  
+}
+
+function tagsFetchAllByProduct ($productId) {
+        
+    	$query = "SELECT `tags`.* FROM `tags` "
+                . "JOIN product_tags "
+                . "ON tags.id = product_tags.tag_id "
+                    . "`WHERE product_tags.product_id = '". dbEscape($productId)."' ";
+	
+	
+	return dbFetchAll($query);
     
 }
