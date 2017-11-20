@@ -99,9 +99,7 @@ if (isset($_POST["task"]) && $_POST["task"] == "save") {
 			$formErrors["photo"][] = "Fajl photo prelazi maksimalnu dozvoljenu velicinu";
 		}
 		
-	} else {//Ovaj else ide samo ako je polje obavezno
-		$formErrors["photo"][] = "Polje photo je obavezno";
-	}
+	} 
 	
 	//Ukoliko nema gresaka 
 	if (empty($formErrors)) {

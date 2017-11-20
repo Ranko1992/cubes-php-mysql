@@ -15,13 +15,13 @@
 				<div class="row">
 					<div class="col-md-12">
 						<h2>
-							CRUD Product - Edit product #
+                                                    CRUD Product - Edit product #<?php echo htmlspecialchars($product['id']);?>
 						</h2>
 					</div>
 				</div>
 				<div class="row">
 					<div class="col-md-12">
-                                            <form action="" method="post" enctype="multipart/form-data" class="form-horizontal">
+						<form action="" method="post" enctype="multipart/form-data" class="form-horizontal">
 							<input type="hidden" name="task" value="save">
 							
 							<fieldset>
@@ -30,7 +30,7 @@
 								<div class="form-group">
 									<label class="col-md-3 control-label">Category</label>  
 									<div class="col-md-5">
-								<select name="category_id" class="form-control">
+										<select name="category_id" class="form-control">
 											<option value="">--- Select Category ---</option>
 											<?php foreach ($categoryList as $categoryId => $categoryLabel) {?>
 											<option 
@@ -57,10 +57,11 @@
 								<div class="form-group">
 									<label class="col-md-3 control-label">Brand</label>  
 									<div class="col-md-5">
-									<select name="brand_id" class="form-control">
+										<select name="brand_id" class="form-control">
 											<option value="">--- Select Brand ---</option>
 											<?php foreach ($brandList as $brandId => $brandTitle) {?>
-											<option value="<?php echo htmlspecialchars($brandId);?>"
+											<option 
+												value="<?php echo htmlspecialchars($brandId);?>"
 												
 												<?php if($brandId == $formData['brand_id']) {?>
 												selected="selected"
@@ -120,10 +121,10 @@
 								<div class="form-group">
 									<label class="col-md-3 control-label">On Sale</label>  
 									<div class="col-md-5">
-                                                                            <label><input name="on_sale" type="radio" value="1"  <?php if(isset($formData['on_sale']) && $formData['on_sale'] == 1) { echo "checked";}?>  > Yes </label>
-                                                                            <label><input name="on_sale" type="radio" value="0"  <?php if(isset($formData['on_sale']) && $formData['on_sale'] == 0) { echo "checked";}?>  > No </label>
+										<label><input name="on_sale" type="radio" value="1" <?php if (isset($formData['on_sale']) && $formData['on_sale'] == 1) {echo "checked";} ?> > Yes</label>
+										<label><input name="on_sale" type="radio" value="0" <?php if (isset($formData['on_sale']) && $formData['on_sale'] == 0) {echo "checked";} ?> > No</label>
 									</div>
-									<div class="col-md-4">s
+									<div class="col-md-4">
 										<?php if (!empty($formErrors["on_sale"])) { ?>
 											<ul style="color: red">
 												<?php foreach ($formErrors["on_sale"] as $errorMessage) { ?>
@@ -156,7 +157,7 @@
 								<legend>Photo</legend>
 								<div class="row">
 									<div class="col-md-8 col-md-offset-2">
-                                                                            <img src="/uploads/products/<?php echo htmlspecialchars($product['photo_filename']);?>" class="img-responsive">
+										<img src="/uploads/products/<?php echo htmlspecialchars($product['photo_filename']); ?>" class="img-responsive">
 									</div>
 								</div>
 								<div class="form-group">

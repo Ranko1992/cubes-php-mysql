@@ -106,7 +106,6 @@ function sectionsGetList (){
         $sectionList[$section['id']] = $section['title'];
      }   
         return $sectionList;
-    
-    
-    
+ 
 }
+

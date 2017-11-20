@@ -21,9 +21,10 @@ function newsFetchAll() {
  */
 function newsFetchOneById($id) {
 	
-	$query = "SELECT `news`.* "
+	$query = "SELECT `news`.*, sections.title as section_title "
 			. "FROM `news` "
-			. "WHERE `id` = '" . dbEscape($id) . "'";
+                . "LEFT JOIN sections ON sections.id = news.section_id "
+			. "WHERE news.`id` = '" . dbEscape($id) . "'";
 	
 	return dbFetchOne($query);
 }
@@ -45,7 +46,8 @@ function newsDeleteOneById($id) {
  * @return type
  */
 function newsInsertOne(array $data) {
-	
+    
+	$data['created_at'] = date('Y-m-d H:i:s');
 	$columnsPart = "(`" . implode('`, `', array_keys($data)) . "`)";
 	
 	$values = array();
@@ -116,4 +118,43 @@ function newsGetListByGroup(){
        $sectionList[$section['id']] = $section['section_title'] . "/". $section['title'] ;
    }
         return $sectionList;
+}
+
+
+function newsFetchAllbyPage($page, $rowsPerPage) {
+	$query = "SELECT `news`.*, `sections`.`title` AS section_title "
+			. "FROM `news` "
+			. "LEFT JOIN `sections` ON `news`.`section_id` = `sections`.`id`";
+	
+	$limit = $rowsPerPage;
+        $offset = ($page - 1) * $rowsPerPage;
+        
+        $query.= " LIMIT " . $limit . " OFFSET " . $offset;
+        
+	return dbFetchAll($query);
+}
+
+function newsFetchAllbySectionByPage($sectionId, $page, $rowsPerPage) {
+	$query = "SELECT `news`.*, `sections`.`title` AS section_title "
+			. "FROM `news` "
+			. "LEFT JOIN `sections` ON `news`.`section_id` = `sections`.`id` "
+                . "WHERE news.section_id = '" . dbEscape($sectionId)."' ";
+	
+	$limit = $rowsPerPage;
+        $offset = ($page - 1) * $rowsPerPage;
+        
+        $query.= " LIMIT " . $limit . " OFFSET " . $offset;
+        
+	return dbFetchAll($query);
+}
+
+function newsGetCountBySection ($sectionId){
+         $query = "SELECT"
+                . " COUNT(news.id)"
+                . " FROM `news` "
+                . " LEFT JOIN sections ON news.section_id = sections.id"
+                . " WHERE news.section_id = '". dbEscape($sectionId)."' " ;
+     
+     
+	return dbFetchColumn($query);
 }

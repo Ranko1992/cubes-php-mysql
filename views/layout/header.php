@@ -1,5 +1,7 @@
 <?php require_once __DIR__ . '/../../models/m_users.php'; ?>
 <?php require_once __DIR__ . '/../../models/m_categories.php'; ?>
+<?php require_once __DIR__ . '/../../models/m_news.php'; ?>
+<?php require_once __DIR__ . '/../../models/m_sections.php'; ?>
 <!DOCTYPE html>
 <html lang="en">
 	<head>
@@ -63,6 +65,21 @@
 									</li>
 									<li>
 										<a href="/products.php">Svi proizvodi</a>
+									</li>
+                                                                        <li>
+                                                                            <a href="/all-news.php">Vesti</a>
+									</li>
+                                                                        <li class="dropdown">
+                                                                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Sekcije vesti</a>
+                                                                            <ul class="dropdown-menu" role="menu">
+                                                                                <?php foreach (sectionsFetchAll() as $sectionsInMenu) {?>
+                                                                                <li>
+                                                                                    <a href="/news-section.php?id=<?php echo htmlspecialchars($sectionsInMenu['id']);?>">
+                                                                                    <?php echo htmlspecialchars($sectionsInMenu['title']);?>
+                                                                                    </a>
+                                                                                </li>
+                                                                                <?php }?>
+                                                                            </ul>
 									</li>
 									<li class="dropdown">
 										<a href="#" class="dropdown-toggle" data-toggle="dropdown">Kategorije</a>
