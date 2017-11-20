@@ -11,6 +11,7 @@ if (!isset($_GET['id'])){
 $id = $_GET['id'];
 
 $sectionNewsById = sectionsFetchOneById($id);
+
 if(empty($sectionNewsById)){
     die ('Izabrali ste nepostojecu sekciju');
 }
@@ -20,12 +21,15 @@ if (isset($_GET['page'])){
     $page = (int) $_GET['page'];
 }
 
-$rowsPerPage = 2;
+$rowsPerPage = 4;
 
 $totalRows = newsGetCountBySection($sectionNewsById['id']);
 
 
 $totalPages = ceil($totalRows/$rowsPerPage);
+if ($page > $totalPages){
+    die ('Trazena stranica ne postoji');
+}
 
 $newsPerSection = newsFetchAllbySectionByPage($sectionNewsById['id'], $page, $rowsPerPage);
 

@@ -20,7 +20,7 @@
 						<div class="media row">
 							<div class="col-sm-3">
 								<a class="media-photo" href="#">
-                                                                    <img src="<?php echo htmlspecialchars($photoFileName['photo']);?>" alt="Title<?php echo $sectionNews['title'];?>" class="media-object img-polaroid" />
+                                                                    <img src="/uploads/news/<?php echo htmlspecialchars($sectionNews['photo_filename']);?>" alt="Title<?php echo $sectionNews['title'];?>" class="media-object img-polaroid" />
 								</a>
 							</div>
 							<div class="col-sm-9">

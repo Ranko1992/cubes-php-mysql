@@ -25,11 +25,11 @@ if (isset($_GET['page'])){
 $rowsPerPage = 8;   
             //funkcija za dovlacenje svih redova
 $totalRows = productsGetCountByCategory($category['id']);   //ukupno redova sa svim proizvodima zbirno
-print_r($totalRows);
+
 $totalPages = ceil($totalRows/$rowsPerPage);   
 
 $products = productsFetchAllByCategoryByPage($category['id'],$page,$rowsPerPage);
-print_r($products);
+
             
 
 

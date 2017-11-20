@@ -16,7 +16,7 @@
 					<div class="col-md-8 blog-post">
 						<!--Main blog post-->
 						<div class="media">
-                                                    <img src="/uploads/news/<?php echo htmlspecialchars($photoFileName['photo']);?>" alt="<?php echo htmlspecialchars($previewNews['title']);?>" class="media-object" />
+                                                    <img src="/uploads/news/<?php echo htmlspecialchars($previewNews['photo_filename']);?>" alt="<?php echo htmlspecialchars($previewNews['title']);?>" class="media-object" />
 							<div class="media-body">
 								<h1><?php echo htmlspecialchars($previewNews['title']);?></h1>
 								<!-- Meta details -->
