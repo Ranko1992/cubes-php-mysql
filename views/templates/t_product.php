@@ -31,8 +31,10 @@
 							</h3>
 							<dl>
 								<dt>Brend:</dt>
-								<dd>
+                                                                <dd>    
+                                                                    <a href="/brand.php?id="<?php echo htmlspecialchars($product['brand_id']); ?>>
 									<?php echo htmlspecialchars($product['brand_title']);?>
+                                                                    </a>
 								</dd>
 								
 								<dt>Kategorija:</dt>

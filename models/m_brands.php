@@ -101,3 +101,10 @@ function brandsGetList (){
     return $brandList;
     
 }
+
+function brandsFetchRandom() {
+	$query = "SELECT brands.* FROM `brands` ORDER BY RAND(brands.id) LIMIT 6";
+	
+	
+	return dbFetchAll($query);
+}

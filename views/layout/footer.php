@@ -1,4 +1,7 @@
-		
+<?php require_once __DIR__ . '/../../models/m_brands.php';?>	
+<?php require_once __DIR__ . '/../../models/m_products.php';?>
+
+
 		<div id="content-below" class="wrapper">
 			<div class="container">
 				<div class="clients block">
@@ -7,36 +10,15 @@
 					</h3>
 					<!--Recommended image sizing: 170px & 70px-->
 					<ul class="thumbnails list-unstyled row">
+                                        <?php  foreach(brandsFetchRandom() as $randomBrand){?> 
 						<li class="col-sm-2">
-							<a href="#" class="well well-lg text-uppercase text-justify">
-								Apple
+                                                    <a href="/brand.php?id=<?php echo htmlspecialchars($randomBrand['id']);?>" class="well well-lg text-uppercase text-justify">
+								<?php echo htmlspecialchars($randomBrand['title']);?>
+                       
 							</a>
 						</li>
-						<li class="col-sm-2">
-							<a href="#" class="well well-lg text-uppercase text-justify">
-								Samsung
-							</a>
-						</li>
-						<li class="col-sm-2">
-							<a href="#" class="well well-lg text-uppercase text-justify">
-								Beko
-							</a>
-						</li>
-						<li class="col-sm-2">
-							<a href="#" class="well well-lg text-uppercase text-justify">
-								HTC
-							</a>
-						</li>
-						<li class="col-sm-2">
-							<a href="#" class="well well-lg text-uppercase text-justify">
-								Gorenje
-							</a>
-						</li>
-						<li class="col-sm-2">
-							<a href="#" class="well well-lg text-uppercase text-justify">
-								Huawei
-							</a>
-						</li>
+                                            <?php }?>
+
 					</ul>
 				</div>
 			</div>
