@@ -252,7 +252,7 @@ if (isset($_POST["task"]) && $_POST["task"] == "save") {
 			if (move_uploaded_file($photoFileTmpPath, $destinationPath)) {
 				
 				productsUpdatePhotoFileName($product['id'], $newPhotoFileName);
-				
+				    $_SESSION['system_message'] = 'Uspesno ste izmenili proizvod';
 				header('Location: /crud-product-list.php');
 				die();
 				
@@ -261,6 +261,7 @@ if (isset($_POST["task"]) && $_POST["task"] == "save") {
 			}
 			
 		} else {
+                
 			header('Location: /crud-product-list.php');
 			die();
 		}

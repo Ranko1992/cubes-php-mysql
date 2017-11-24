@@ -10,6 +10,15 @@ if (!isUserLoggedIn()) {
 }
 require_once __DIR__ . '/models/m_sections.php';
 
+ $systemMessage = '';
+
+
+if(isset($_SESSION['system_message'])){
+    $systemMessage = $_SESSION['system_message'];
+    
+    unset($_SESSION['system_message']);
+    
+}
 
 $sections = sectionsFetchAll();
 

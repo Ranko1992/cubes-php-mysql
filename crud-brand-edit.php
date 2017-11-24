@@ -70,7 +70,7 @@ if (isset($_POST["task"]) && $_POST["task"] == "save") {
 		//Uradi akciju koju je korisnik trazio
 		
 		brandsUpdateOneById($brand['id'], $formData);
-		
+		  $_SESSION['system_message'] = 'Uspesno ste izmenili brend proizvoda';
 		header('Location: /crud-brand-list.php');
 		die();
 	}

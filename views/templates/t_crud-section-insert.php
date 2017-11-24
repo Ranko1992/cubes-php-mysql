@@ -18,9 +18,11 @@
 							CRUD Sections - Insert new section
 						</h2>
 					</div>
+                                          
 				</div>
 				<div class="row">
 					<div class="col-md-12">
+                                         
 						<form action="" method="post" class="form-horizontal">
                                                     
 							<input type="hidden" name="task" value="insert">
@@ -53,6 +55,7 @@
 								</div>
 							</fieldset>
 						</form>
+                                        
 					</div>
 				</div>
 			</div>

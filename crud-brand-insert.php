@@ -56,7 +56,7 @@ if (isset($_POST["task"]) && $_POST["task"] == "insert") {
 		//Uradi akciju koju je korisnik trazio
 		
 		$newBrandId = brandsInsertOne($formData);
-		
+		  $_SESSION['system_message'] = 'Uspesno ste dodali brend proizvoda';
 		header('Location: /crud-brand-list.php');
 		die();
 	}

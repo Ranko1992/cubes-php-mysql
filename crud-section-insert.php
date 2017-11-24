@@ -39,8 +39,9 @@ if (isset($_POST["task"]) && $_POST["task"] == "insert") {
 	
 	//Ukoliko nema gresaka 
 	if (empty($formErrors)) {
-		
+ 
             $newSection = sectionsInsertOne($formData);
+             $_SESSION['system_message'] = "Uspesno ste dodali sekciju vesti";
             header('Location: /crud-section-list.php');
             die();
             

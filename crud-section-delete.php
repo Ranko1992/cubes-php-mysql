@@ -28,7 +28,7 @@ if (empty($section)) {
 if (isset($_POST["task"]) && $_POST["task"] == "delete") {
 	
         sectionsDeleteOneById($id);
-
+        $_SESSION['system_message'] = "Uspesno ste obrisali sekciju vesti";
 	header('Location: /crud-section-list.php');
 	die();
 }

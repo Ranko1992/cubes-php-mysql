@@ -51,7 +51,7 @@ if (isset($_POST["task"]) && $_POST["task"] == "save") {
 	if (empty($formErrors)) {
             //Uradi akciju koju je korisnik trazio
         sectionsUpdateOneById($section['id'], $formData);
-
+        $_SESSION['system_message'] = "Uspesno ste izmenili sekciju vesti";
         header('location: /crud-section-list.php');
         die();
 	}

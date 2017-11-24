@@ -233,7 +233,7 @@ if (isset($_POST["task"]) && $_POST["task"] == "insert") {
 		if(move_uploaded_file($photoFileTmpPath, $destinationPath)) {
 			
 			productsUpdatePhotoFileName($newProductId, $newProductPhotoFileName);
-			
+			$_SESSION['system_message'] = 'Uspesno ste dodali proizvod';
 			
 			header('Location: /crud-product-list.php');
 			die();

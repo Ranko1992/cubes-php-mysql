@@ -32,7 +32,7 @@ if (isset($_POST["task"]) && $_POST["task"] == "delete") {
 	}
 	
 	productsDeleteOneById($product['id']);
-
+            $_SESSION['system_message'] = 'Uspesno ste obrisali proizvod';
 	header('Location: /crud-product-list.php');
 	die();
 }

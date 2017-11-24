@@ -104,7 +104,7 @@ if (isset($_POST["task"]) && $_POST["task"] == "insert") {
         unset($formData['confirm_password']);
 
         $newUserId = usersInsertOne($formData);
-
+        $_SESSION['system_message'] = "Uspesno ste dodali korisnika";
         header('Location: /crud-user-list.php');
         die();
     }

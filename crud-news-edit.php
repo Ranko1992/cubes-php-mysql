@@ -123,6 +123,7 @@ if (isset($_POST["task"]) && $_POST["task"] == "save") {
                 if (move_uploaded_file($photoFileTmpPath, $destinationPath)){
                     
                     newsUpdatePhotoFileName($new['id'], $newPhotoFileName);
+                     $_SESSION['system_message'] = 'Uspesno ste izmenili vest';
                      header('Location: /crud-news-list.php');
                      die();
                 }else {
