@@ -11,8 +11,7 @@ function checkCredentials($username, $password) {
     $user = usersFetchOneByUsername($username);
     
     if (!empty($user)){
-        
-        
+                
         if(md5($password) == $user['password']){
             return $user;
         }

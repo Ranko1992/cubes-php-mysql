@@ -133,6 +133,7 @@
                                                 <li><a href="/crud-user-list.php">Crud Users</a></li>
 
                                                 <li><hr></li>
+                                                <li><a href="/profile-preview.php?id=<?php echo htmlspecialchars(($_SESSION['logged_in_user']['id']));?>"></i>Profile</a></li>
                                                 <li><a href="/logout.php"><i class="glyphicon glyphicon-log-out"></i> Logout</a></li>
                                             </ul>
                                         </li>

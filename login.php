@@ -53,6 +53,7 @@ if (isset($_POST["task"]) && $_POST["task"] == "login") {
 			
 			//uspesno je ulogovan
                         $_SESSION['logged_in_user'] = $user;
+                        
 			header('Location: /index.php');
 			die;
 			
